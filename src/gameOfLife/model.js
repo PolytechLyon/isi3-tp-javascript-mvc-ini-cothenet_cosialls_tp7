@@ -34,6 +34,22 @@ export class Model extends Observable{
           for (let j = 0; j < this.width; j++) {
             const nbAlive = this.aliveNeighbours(i, j);
             // TODO implement Game of life logic
+            //si céllule vivante :
+            if(this.isCellAlive(i, j)){
+              //si 2 ou 3 cellules vivantes => reste vivante
+              if(nbAlive === 2 || nbAlive === 2)
+                this.state[i][j] = CELL_STATES.ALIVE;
+              else
+                this.state[i][j] = CELL_STATES.DEAD;
+            }
+            //Si cellule morte :
+            else{
+              //si 3 cellules voisines au moins sont vivante => devient vivante
+              if(nbAlive === 3)
+                this.state[i][j] = CELL_STATES.ALIVE;
+              else
+                this.state[i][j] = CELL_STATES.DEAD;
+            }
           }
         }
 
@@ -52,6 +68,8 @@ export class Model extends Observable{
 
   reset() {
     // TODO
+    //remet à l'état initiale:
+    this.init();
   }
 
   isCellAlive(x, y) {
@@ -66,6 +84,12 @@ export class Model extends Observable{
   aliveNeighbours(x, y) {
     let number = 0;
     // TODO
+    for(let i = x-1; i < x+2; i++){
+      for(let j = y-1; j < y+2; j++){
+        if(this.isCellAlive(i,j))
+          number++;
+      }
+    }
     return number;
   }
 

@@ -4,9 +4,12 @@ import {
   DEFAULT_ALIVE_PAIRS,
   RENDER_INTERVAL
 } from "./constants.js";
+import { Observable } from 'rxjs';
+import {ObserverView} from "./observerView";
 
-export class Model {
+export class Model extends Observable{
   constructor() {
+    super();
     this.width = GAME_SIZE;
     this.height = GAME_SIZE;
     this.raf = null;
@@ -68,5 +71,8 @@ export class Model {
 
   updated() {
     // TODO update the view
+    const obs = ObserverView();
+    obs.update(self);
+    this.notify();
   }
 }

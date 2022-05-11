@@ -4,7 +4,7 @@
 
 > Ne copiez pas le code de votre voisin, ça se voit.
 
-Nom/Prénom: `.......`
+Nom/Prénom: `COTHENET Jade et COSIALLS Maxime`
 
 Lien du codesandbox: `.......`
 
@@ -30,11 +30,15 @@ Utiliser un outils comme Dia pour le représenter. Je veux **votre** schéma, pa
 
 2. Expliquer ce pattern en complétant ce texte.
 
-Le pattern MVC, vise à découper le `.......`, de la `.......` et du `.......` afin de rendre le code plus `.......`.
-Les responsabilités ne sont alors plus `.......`.
-On peut ainsi changer l'aspect visuel de son application sans pour autant impacter le `.......`.
+Le pattern MVC, vise à découper le `Modele`, de la `Vue` et du `Controleur` afin de rendre le code plus `maintenable`.
+Les responsabilités ne sont alors plus `centralisées`.
+On peut ainsi changer l'aspect visuel de son application sans pour autant impacter le `Back`.
 
 3. Expliquer dans quels cas on doit privilégier le pattern MVC.
+
+On doit privilégier ce pattern quand on a des développements à faire en parallèle sur plusieurs niveaux. C'est à dire
+qu'une personne peut travailler sur la vue et une autre sur le controleur en même temps. De plus en théorie cela est
+plus facile à maintenir.Par exemple si l'on fait passer la base de données de SQL à XML il n'y aura que le modèle à changer.
 
 ## À faire (obligatoire)
 
@@ -43,17 +47,17 @@ On peut ainsi changer l'aspect visuel de son application sans pour autant impact
 - Le bouton `stop` doit arrêter le jeu en l'état, le `start` relance le jeu.
 - le bouton `reset` arrête le jeu et remet à la grille à l'état initial.
 
-### Observer Observable
+### ObserverView Observable
 
 Afin de mettre à jour la vue à chaque nouvelle génération du jeu, la fonction `updated` doit notifier la view afin qu'elle se mette à jour.
-Cela relève du design pattern Observer/Observable.
+Cela relève du design pattern ObserverView/Observable.
 
 1. Expliquer votre implémentation:
 
 L'usage d'un callback permet ici de `.......` afin de dire à la _View_ de se redessiner.
 L'objet _Model_ n'a pas de lien avec `.......` pourtant grâce à la `.......` il peut notifier la `.......`.
 
-2. Insérer ici un UML montrant le pattern Observer/Observable lié aux objets de ce TP.
+2. Insérer ici un UML montrant le pattern ObserverView/Observable lié aux objets de ce TP.
 
 ## Optionnel
 

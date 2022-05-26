@@ -1,11 +1,9 @@
-import {drawGame} from "./view";
+import {drawGame} from "./view.mjs";
 
 export class ObserverView {
     constructor() {
     }
-
     update(model){
-        console.log("màj vue!");
         drawGame(model);
     }
 }

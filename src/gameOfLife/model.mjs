@@ -3,14 +3,15 @@ import {
   CELL_STATES,
   DEFAULT_ALIVE_PAIRS,
   RENDER_INTERVAL
-} from "./constants.js";
-import { Observable } from 'rxjs';
-import {ObserverView} from "./observerView";
+} from "./constants.mjs";
+// import { Observable } from 'rxjs';
+import {ObserverView} from "./observerView.mjs";
 
-export class Model extends Observable{
+// export class Model extends Observable{
+export class Model {
   constructor() {
-    super();
-    this.width = GAME_SIZE;
+    // super();
+    this.width  = GAME_SIZE;
     this.height = GAME_SIZE;
     this.raf = null;
   }
@@ -95,8 +96,8 @@ export class Model extends Observable{
 
   updated() {
     // TODO update the view
-    const obs = ObserverView();
-    obs.update(self);
-    this.notify();
+    const obs = new ObserverView();
+    obs.update(this);
+    // this.notify();
   }
 }

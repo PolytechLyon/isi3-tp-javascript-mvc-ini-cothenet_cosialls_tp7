@@ -4,13 +4,13 @@ import {
   DEFAULT_ALIVE_PAIRS,
   RENDER_INTERVAL
 } from "./constants.mjs";
-// import { Observable } from 'rxjs';
-import {ObserverView} from "./observerView.mjs";
+import {ObserverModel} from "./observerModel.mjs";
+import {ObservableGeneric} from "./observation.mjs";
 
-// export class Model extends Observable{
-export class Model {
+export class Model extends ObservableGeneric{
+//export class Model {
   constructor() {
-    // super();
+    super();
     this.width  = GAME_SIZE;
     this.height = GAME_SIZE;
     this.raf = null;
@@ -35,10 +35,10 @@ export class Model {
           for (let j = 0; j < this.width; j++) {
             const nbAlive = this.aliveNeighbours(i, j);
             // TODO implement Game of life logic
-            //si céllule vivante :
+            //si cellule vivante :
             if(this.isCellAlive(i, j)){
               //si 2 ou 3 cellules vivantes => reste vivante
-              if(nbAlive === 2 || nbAlive === 2)
+              if(nbAlive === 2 || nbAlive === 3)
                 this.state[i][j] = CELL_STATES.ALIVE;
               else
                 this.state[i][j] = CELL_STATES.DEAD;

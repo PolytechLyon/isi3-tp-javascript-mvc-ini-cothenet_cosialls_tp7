@@ -4,11 +4,9 @@ import {
   DEFAULT_ALIVE_PAIRS,
   RENDER_INTERVAL
 } from "./constants.mjs";
-import {ObserverModel} from "./observerModel.mjs";
 import {ObservableGeneric} from "./observation.mjs";
 
 export class Model extends ObservableGeneric{
-//export class Model {
   constructor() {
     super();
     this.width  = GAME_SIZE;
@@ -31,6 +29,8 @@ export class Model extends ObservableGeneric{
       const currentTime = new Date().getTime();
       if (currentTime - date > RENDER_INTERVAL) {
 
+        let copieState = JSON.parse(JSON.stringify(this.state));
+
         for (let i = 0; i < this.width; i++) {
           for (let j = 0; j < this.width; j++) {
             const nbAlive = this.aliveNeighbours(i, j);
@@ -39,20 +39,20 @@ export class Model extends ObservableGeneric{
             if(this.isCellAlive(i, j)){
               //si 2 ou 3 cellules vivantes => reste vivante
               if(nbAlive === 2 || nbAlive === 3)
-                this.state[i][j] = CELL_STATES.ALIVE;
+                copieState[j][i] = CELL_STATES.ALIVE;
               else
-                this.state[i][j] = CELL_STATES.DEAD;
+                copieState[j][i] = CELL_STATES.DEAD;
             }
             //Si cellule morte :
-            else{
+            else {
               //si 3 cellules voisines au moins sont vivante => devient vivante
               if(nbAlive === 3)
-                this.state[i][j] = CELL_STATES.ALIVE;
-              else
-                this.state[i][j] = CELL_STATES.DEAD;
+                copieState[j][i] = CELL_STATES.ALIVE;
             }
           }
         }
+
+        this.state = copieState;
 
         this.updated();
         this.run(currentTime);
@@ -82,19 +82,23 @@ export class Model extends ObservableGeneric{
       ? 1
       : 0;
   }
+
   aliveNeighbours(x, y) {
     let number = 0;
     // TODO
-    for(let i = x-1; i < x+2; i++){
-      for(let j = y-1; j < y+2; j++){
-        if(this.isCellAlive(i,j))
-          number++;
-      }
-    }
+    number = this.isCellAlive(x-1, y-1)
+    + this.isCellAlive(x, y-1)
+    + this.isCellAlive(x+1, y-1)
+    + this.isCellAlive(x-1, y)
+    + this.isCellAlive(x+1, y)
+    + this.isCellAlive(x-1, y+1)
+    + this.isCellAlive(x, y+1)
+    + this.isCellAlive(x+1, y+1)
+
     return number;
   }
 
-  updated(observerView) {
+  updated() {
     // TODO update the view
     this.notify(this);
   }

@@ -13,7 +13,7 @@ export const initView = () => {
   document.getElementById("game").appendChild(canvas);
   canvas.setAttribute("height", GAME_SIZE * CELL_SIZE + GAME_SIZE - 1);
   canvas.setAttribute("width", GAME_SIZE * CELL_SIZE + GAME_SIZE - 1);
- };
+};
 
 export const drawGame = model => {
   console.log("draw game");
@@ -24,34 +24,3 @@ export const drawGame = model => {
   });
 };
 
-export class ButtonManager extends ObservableGeneric{
-  constructor() {
-    super();
-    this.buttonStart = document.getElementById("start");
-    this.buttonStart.onclick = this.start;
-    this.buttonStop = document.getElementById("stop");
-    this.buttonStop.onclick = this.stop;
-    this.buttonReset = document.getElementById("reset");
-    this.buttonReset.onclick = this.reset;
-
-  }
-
-  start(){
-    console.log('start');
-    this.update()
-  }
-
-  stop(){
-    console.log('stop');
-    this.notify("stop");
-  }
-
-  reset(){
-    console.log('reset');
-    this.notify("reset");
-  }
-
-  update(){
-    this.notify(this);
-  }
-}

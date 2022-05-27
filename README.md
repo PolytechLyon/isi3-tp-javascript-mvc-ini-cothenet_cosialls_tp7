@@ -58,10 +58,12 @@ Cela relève du design pattern ObserverModel/Observable.
 
 1. Expliquer votre implémentation:
 
-L'usage d'un callback permet ici de `.......` afin de dire à la _View_ de se redessiner.
-L'objet _Model_ n'a pas de lien avec `.......` pourtant grâce à la `.......` il peut notifier la `.......`.
+L'usage d'un callback permet ici de `notifier` afin de dire à la _View_ de se redessiner.
+L'objet _Model_ n'a pas de lien avec `la vue` pourtant grâce à la`mise en place du pattern observer/observable` il peut notifier la `vue`.
 
 2. Insérer ici un UML montrant le pattern ObserverModel/Observable lié aux objets de ce TP.
+
+![](DiagramObs.drawio.png)
 
 ## Optionnel
 

@@ -1,9 +1,20 @@
-import {ObserverModel} from "./observerModel.mjs";
+export const controller = (model) => {
 
-export const controller = (model, buttonManager) => {
-  // model.subscribe(obs);
-  // console.log('run model')
-  // model.run();
-  model.subscribe(new ObserverModel());
-  model.run();
+  //model.run();
+
+  let buttonStart = document.getElementById("start");
+  buttonStart.onclick = () => {
+    model.run();
+  };
+
+  let buttonStop = document.getElementById("stop");
+  buttonStop.onclick = () => {
+    model.stop();
+  };
+
+  let buttonReset = document.getElementById("reset");
+  buttonReset.onclick = () => {
+    model.reset()
+  };
+
 };

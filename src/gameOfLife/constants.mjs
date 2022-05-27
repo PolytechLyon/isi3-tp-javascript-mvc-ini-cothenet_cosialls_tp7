@@ -1,4 +1,4 @@
-export const GAME_SIZE = 10;
+export const GAME_SIZE = 30;
 export const CELL_SIZE = 20;
 export const RENDER_INTERVAL = 500;
 

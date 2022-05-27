@@ -94,10 +94,8 @@ export class Model {
     return number;
   }
 
-  updated() {
+  updated(observerView) {
     // TODO update the view
-    const obs = new ObserverView();
-    obs.update(this);
-    // this.notify();
+    this.notify(this);
   }
 }

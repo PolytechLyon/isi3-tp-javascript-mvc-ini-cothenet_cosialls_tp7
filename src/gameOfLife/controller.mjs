@@ -1,7 +1,9 @@
-import {ObserverView} from "./observerView.mjs";
+import {ObserverModel} from "./observerModel.mjs";
 
-export const controller = model => {
-  let obs = new ObserverView();
+export const controller = (model, buttonManager) => {
   // model.subscribe(obs);
+  // console.log('run model')
+  // model.run();
+  model.subscribe(new ObserverModel());
   model.run();
 };

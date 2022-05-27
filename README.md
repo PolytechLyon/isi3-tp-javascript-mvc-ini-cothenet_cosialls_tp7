@@ -49,17 +49,19 @@ plus facile à maintenir.Par exemple si l'on fait passer la base de données de 
 - Le bouton `stop` doit arrêter le jeu en l'état, le `start` relance le jeu.
 - le bouton `reset` arrête le jeu et remet à la grille à l'état initial.
 
-### ObserverView Observable
+N.B : relancer la page web avec CTRL+F5
+
+### ObserverModel Observable
 
 Afin de mettre à jour la vue à chaque nouvelle génération du jeu, la fonction `updated` doit notifier la view afin qu'elle se mette à jour.
-Cela relève du design pattern ObserverView/Observable.
+Cela relève du design pattern ObserverModel/Observable.
 
 1. Expliquer votre implémentation:
 
 L'usage d'un callback permet ici de `.......` afin de dire à la _View_ de se redessiner.
 L'objet _Model_ n'a pas de lien avec `.......` pourtant grâce à la `.......` il peut notifier la `.......`.
 
-2. Insérer ici un UML montrant le pattern ObserverView/Observable lié aux objets de ce TP.
+2. Insérer ici un UML montrant le pattern ObserverModel/Observable lié aux objets de ce TP.
 
 ## Optionnel
 
